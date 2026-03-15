@@ -1,0 +1,76 @@
+import { Course } from './types';
+
+export const CATEGORIES = [
+  { name: 'Web Development', icon: 'Code' },
+  { name: 'Graphic Design', icon: 'Palette' },
+  { name: 'Digital Marketing', icon: 'Megaphone' },
+  { name: 'Freelancing', icon: 'Briefcase' },
+  { name: 'AI Tools', icon: 'Cpu' },
+];
+
+export const MOCK_COURSES: Course[] = [
+  {
+    id: '1',
+    title: 'Full Stack Web Development with React & Node.js',
+    description: 'Master modern web development from scratch. Learn React, Node, Express, and MongoDB.',
+    instructorId: 'inst1',
+    instructorName: 'Tarek Rohman',
+    price: 4999,
+    discountPrice: 2499,
+    rating: 4.8,
+    studentsCount: 1250,
+    thumbnail: 'https://picsum.photos/seed/webdev/800/600',
+    category: 'Web Development',
+    curriculum: [
+      {
+        title: 'Introduction',
+        lessons: [
+          { id: 'l1', title: 'Welcome to the course', duration: '5:00', videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
+          { id: 'l2', title: 'Setting up your environment', duration: '15:00', videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
+        ],
+      },
+    ],
+  },
+  {
+    id: '2',
+    title: 'Advanced Graphic Design Masterclass',
+    description: 'Learn professional graphic design techniques using Adobe Photoshop and Illustrator.',
+    instructorId: 'inst2',
+    instructorName: 'Sarah Jenkins',
+    price: 3500,
+    discountPrice: 1999,
+    rating: 4.9,
+    studentsCount: 850,
+    thumbnail: 'https://picsum.photos/seed/design/800/600',
+    category: 'Graphic Design',
+    curriculum: [],
+  },
+  {
+    id: '3',
+    title: 'Digital Marketing Strategy 2024',
+    description: 'Grow your business with social media marketing, SEO, and paid advertising.',
+    instructorId: 'inst3',
+    instructorName: 'John Doe',
+    price: 2999,
+    discountPrice: 1499,
+    rating: 4.7,
+    studentsCount: 2100,
+    thumbnail: 'https://picsum.photos/seed/marketing/800/600',
+    category: 'Digital Marketing',
+    curriculum: [],
+  },
+  {
+    id: '4',
+    title: 'Freelancing Success: Upwork & Fiverr',
+    description: 'Learn how to get high-paying clients on top freelancing platforms.',
+    instructorId: 'inst4',
+    instructorName: 'Alex Rivera',
+    price: 1999,
+    discountPrice: 999,
+    rating: 4.6,
+    studentsCount: 3200,
+    thumbnail: 'https://picsum.photos/seed/freelance/800/600',
+    category: 'Freelancing',
+    curriculum: [],
+  },
+];

@@ -1,0 +1,83 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["student", "instructor", "admin"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "courses": {
+      "title": "Course",
+      "description": "Course details and curriculum",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "instructorId": { "type": "string" },
+        "instructorName": { "type": "string" },
+        "price": { "type": "number" },
+        "discountPrice": { "type": "number" },
+        "rating": { "type": "number" },
+        "studentsCount": { "type": "number" },
+        "thumbnail": { "type": "string" },
+        "category": { "type": "string" },
+        "curriculum": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": { "type": "string" },
+              "lessons": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": { "type": "string" },
+                    "duration": { "type": "string" },
+                    "videoUrl": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": ["title", "instructorId", "price", "category"]
+    },
+    "enrollments": {
+      "title": "Enrollment",
+      "description": "Student enrollment in a course",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "courseId": { "type": "string" },
+        "enrolledAt": { "type": "string", "format": "date-time" },
+        "progress": { "type": "number" },
+        "completedLessons": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["userId", "courseId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "User profiles"
+    },
+    "/courses/{courseId}": {
+      "schema": "courses",
+      "description": "Available courses"
+    },
+    "/enrollments/{enrollmentId}": {
+      "schema": "enrollments",
+      "description": "Course enrollments"
+    }
+  }
+}
